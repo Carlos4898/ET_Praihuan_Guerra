@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuienesSomos</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+    <script src="{% static 'js/funciones.js' %}"></script>
+
+    <script>
+        setInterval(() =>{
+            var reloj = document.getElementsByClassName("reloj")[0];
+            var tiempoActual = new Date();
+            var hora = tiempoActual.getHours();
+           
+            if (segundos <10){
+                segundos = `0${segundos}`
+            }
+            var minutos = tiempoActual.getMinutes();
+            if(minutos<10){
+                minutos = `0${minutos}`
+            }
+            
+            var segundos = tiempoActual.getSeconds();
+            if(segundos<10){
+                segundos = `0${segundos}`
+            }
+            reloj.innerHTML = `${hora}:${minutos}:${segundos}`;
+        },1000);
+    </script>
+
+</head>
+
+<body>
+    <!--Objetivo del sitio web. Enlace a un video. Mas contexto del caso. -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'img/gatos2.jpg' %}" width="100px" height="100px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'quienes' %}">Quienes Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'galeria' %}">Galeria</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ayudanos' %}">Postúlate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'gatos' %}">Sobre ellos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'api' %}">Casos de éxito</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'crear' %}">Ingresar Gato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'crearCli' %}">Ingresar Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'mostrarCli' %}">Mostrar Clientes</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mostrar' %}">Mostrar Gatos</a>
+                </li>
+            </ul>
+
+            <div>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" id="userGroundZero">
+                         <img src="{% static 'img/user-vector-icon.png' %}" alt="userGroundZero" width="20px">Cerrar Sesión
+                    </a>
+                {% else %}    
+                <a href="{% url 'login' %}" id="userGroundZero">
+                    <img src="{% static 'img/user-vector-icon.png' %}" alt="userGroundZero" width="20px">Iniciar sesión
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <p class="parrafo">Debido a la gran cantidad de gatos en Situacion de abandono, y que los municipios no dan abasto, es que decidimos crear una fundacion sin fines de Lucro.</p>
+    <br>
+    <p class="parrafo">Somos GroundZero, y nuestra gran pasión y amor por los gatos nos llevo a intentar ayudar a aquellos que se encuentran en necesidad de ser acogidos. Este sitio Web sirve como expositor de nuestra misión.</p>
+    <br>
+    <p class="parrafo">Esta organizacion esta conformada por diversos profesionales y ciudadanos con ganas de ayudar, puesto que cualquier ayuda es bienvenida.</p>
+    <br>
+    <p class="parrafo">Somos autogestionados, por lo que todos los gastos los paga la misma gente que colabora con nosotros de manera directa o de las donaciones que recibimos.</p>
+    <br>
+    <p class="parrafo">Aún queda mucho por hacer, pero creemos que esto puede servir como puntapie inicial para un mejor futuro felino.</p>
+    <br>
+    <div style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/X9QxvAaf_kY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <br>
+    <br>
+
+    <footer>
+        <div class="row col-12">
+            <div class="col-lg-2">
+                <img src="{% static 'img/gatos2.jpg' %}" alt="Gato" width="100px">
+            </div>
+            <div class="col-lg-1">
+                <a href="{% url 'home' %}" id="linkFooter"><strong>INICIO</strong></a>
+            </div>
+    
+            <div class="col-lg-1">
+                <a href="{% url 'quienes' %}" id="linkFooter"><strong>Quienes Somos</strong></a>
+            </div>
+    
+            <div class="col-lg-1">
+                <a href="{% url 'galeria' %}" id="linkFooter"><strong>Galería</strong></a>
+            </div>
+
+        <div class="col-lg-2">
+            <FONT color="dodgerblue"><strong>Síguenos</strong></FONT>
+            <br><br>
+            <div class="row">
+                <img src="{% static 'img/2000px-Facebook_font_awesome.svg.png' %}" alt="" width="30px" height="30px"
+                    style=" margin-left: 15px;">
+                <img src="{% static 'img/twitter.png' %}" alt="" width="30px" height="30px" style=" margin-left: 10px;">
+                <img src="{% static 'img/Instagram.png' %}" alt="" width="30px" height="30px" style=" margin-left: 10px;">
+            </div>
+        </div>
+
+            <div class="col-lg-3">
+
+                <FONT color = "dodgerblue"><strong>Contacto</strong></FONT>
+                <br><br>
+                <div class="row">
+                    <img src="{% static 'img/location.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>Pje Leda 1043, Maipú</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/fono.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>225554000</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/email.png' %}" alt="" width="20px" height="20px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>consulta@GroundZero.cl</p>
+                </div>
+                <br><br><br>
+
+                <p>Carlos Praihuán</p>
+                <p>&copy; GroundZero - 2023</p>
+            </div>
+        </div>
+
+        <h4>Hora Actual</h4>
+        <div class="reloj">12:30:30</div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+.parrafo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    width: 50%;
+    border: 5px solid turquoise;
+    float: none;
+    padding: 10px;
+    text-align: justify;
+}
+
+.carousel-item {
+    height: 80vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+    background-position: center center;
+}
+
+body {
+    background-color: powderblue;
+    font-size: 15pt;
+    font-style: unset;
+  }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    width: 50%;
+  }
+
+div.galeria{
+    margin: 10px 20px;
+    box-shadow: 0 4 8px turquoise;
+    float: none;
+    width: 50px;
+}
+
+div.galeria.img{
+    width: 100%;
+    height: auto;
+}
+
+footer{
+    margin-top: 50px;
+    color: #fff;
+    background-color: darkturquoise;
+  }
+
+  a.logo {
+	position:absolute;
+	bottom: 1;
+    width: auto;
+    height: auto;
+}
+
+
